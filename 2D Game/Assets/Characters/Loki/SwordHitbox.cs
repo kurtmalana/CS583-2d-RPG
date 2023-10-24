@@ -8,6 +8,7 @@ public class SwordHitbox : MonoBehaviour
     //Vector2 leftAttackOffset;
 
     public float swordDamage = 1f;
+    public float knockbackForce = 700f;
     public Collider2D swordCollider;
 
     public Vector3 faceRight = new Vector3(-0.03f, 0.01f, 0);
@@ -30,9 +31,29 @@ public class SwordHitbox : MonoBehaviour
         
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D col)
     {
         col.collider.SendMessage("OnHit", swordDamage);
+    }*/
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        IDamageable damageableObject = collider.GetComponent<IDamageable>();
+
+        if (damageableObject != null)
+        {
+            Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+
+            Vector2 direction = (Vector2) (collider.gameObject.transform.position - parentPosition).normalized;
+            Vector2 knockback = direction * knockbackForce;
+
+            //collider.SendMessage("OnHit", swordDamage, knockback);
+            damageableObject.OnHit(swordDamage, knockback);
+        }
+        else {
+            Debug.LogWarning("Collider does not implement IDamageable");
+        }
     }
 
     void IsFacingLeft(bool isFacingLeft) {
@@ -46,5 +67,8 @@ public class SwordHitbox : MonoBehaviour
 
     }
 
+    //Vector2 CalculateKnockback() {
+        //GameObject character = gameObject.GetComponentInParent;
+    //}
 
 }

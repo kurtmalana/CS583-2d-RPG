@@ -57,6 +57,6 @@ public class SwordAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        col.collider.SendMessage("OnHit", 1);
+        //col.collider.SendMessage("OnHit", 1);
     }
 }

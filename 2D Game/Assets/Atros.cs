@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Atros : MonoBehaviour
+public class Atros : MonoBehaviour, IDamageable
 {
     Animator animator;
+    Rigidbody2D rb;
+    Collider2D physicsCollider;
 
     bool isAlive = true;
     public float health = 5;
+    public bool targetable = true;
 
     public float Health
     {
@@ -22,6 +25,7 @@ public class Atros : MonoBehaviour
 
             if (health <= 0) {
                 animator.SetBool("isAlive", false);
+                Targetable = false;
                 //Destroy(gameObject);
                 
             }
@@ -31,12 +35,24 @@ public class Atros : MonoBehaviour
         }
     }
 
-    
+    public bool Targetable {
+        get {
+            return targetable; 
+        }
+        set {
+            targetable = value;
+            physicsCollider.enabled = value;
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         animator.SetBool("isAlive", isAlive);
+        rb = GetComponent<Rigidbody2D>();
+        physicsCollider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -45,9 +61,27 @@ public class Atros : MonoBehaviour
         
     }
 
-    void OnHit(float damage) {
-        //animator.SetTrigger("hit");
+    public void OnHit(float damage, Vector2 knockback)
+    {
         Debug.Log("Atros Hit " + damage);
         Health -= damage;
+        rb.AddForce(knockback);
+        Debug.Log("Force " + knockback);
+    }
+
+    public void OnHit(float damage)
+    {
+        Debug.Log("Atros Hit " + damage);
+        Health -= damage;
+    }
+
+    public void MakeUntergetable()
+    {
+        rb.simulated = false;
+    }
+
+    public void OnObjectDestroyed()
+    {
+        GameObject.Destroy(gameObject);
     }
 }

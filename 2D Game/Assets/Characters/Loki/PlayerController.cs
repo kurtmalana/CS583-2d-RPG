@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour
             if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = true;
-                gameObject.BroadcastMessage("IsFacingLeft", false);
+                gameObject.BroadcastMessage("IsFacingLeft", true);
                 //swordAttack.IsFacingLeft(false);
             }
             else if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = false;
-                gameObject.BroadcastMessage("IsFacingLeft", true);
+                gameObject.BroadcastMessage("IsFacingLeft", false);
                 //swordAttack.IsFacingLeft(true);
             }
 
