@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8926427460468453234}
   - component: {fileID: 3736091452080278182}
   - component: {fileID: 3364290052001652830}
+  - component: {fileID: 4038987022281061350}
   m_Layer: 0
   m_Name: Atros
   m_TagString: Enemy
@@ -181,4 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e61591cfd03d3b49925368b5ad5e5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  damage: 1
+--- !u!114 &4038987022281061350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651410799085781841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f903ad814ed13b47afad30ccb853660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  targetable: 1
+  disableSimulation: 0

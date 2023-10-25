@@ -8080,6 +8080,10 @@ PrefabInstance:
       propertyPath: knockbackForce
       value: 700
       objectReference: {fileID: 0}
+    - target: {fileID: 5275166602970655004, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
+      propertyPath: disableSimulation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8639184188120511884, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8088,14 +8092,20 @@ PrefabInstance:
       propertyPath: swordCollider
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5397629672004175084, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
 --- !u!1 &140796247950270530 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 140796248340613705, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
   m_PrefabInstance: {fileID: 140796247950270529}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &140796247950270531
+--- !u!4 &140796247950270538 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 140796248340613706, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
+  m_PrefabInstance: {fileID: 140796247950270529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &140796247950270546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8104,34 +8114,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 140796247950270530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76860bf4b2546d845b78daf8d1f79d41, type: 3}
+  m_Script: {fileID: 11500000, guid: ce9596af4bc5dec42bfdd5614bfe7596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.05
-  maxSpeed: 2.2
-  idleFriction: 0.9
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 1
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  swordAttack: {fileID: 0}
-  swordHitbox: {fileID: 0}
---- !u!4 &140796247950270538 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 140796248340613706, guid: dac5752db3ebe0845b6136d8aa52d4d6, type: 3}
-  m_PrefabInstance: {fileID: 140796247950270529}
-  m_PrefabAsset: {fileID: 0}
+  health: 5
+  targetable: 1
 --- !u!1001 &6283454776755503836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8202,6 +8189,10 @@ PrefabInstance:
     - target: {fileID: 3364290052001652830, guid: 4f3e18ba281fe7f49b9c9583904230d3, type: 3}
       propertyPath: health
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364290052001652830, guid: 4f3e18ba281fe7f49b9c9583904230d3, type: 3}
+      propertyPath: knockbackForce
+      value: 2500
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8926427460468453234, guid: 4f3e18ba281fe7f49b9c9583904230d3, type: 3}

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3362722673780884002}
   - component: {fileID: 1301853712540637559}
   - component: {fileID: 5275166602970655004}
+  - component: {fileID: 5397629672004175084}
   m_Layer: 0
   m_Name: Loki
   m_TagString: Player
@@ -232,6 +233,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f903ad814ed13b47afad30ccb853660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
+  targetable: 1
+  disableSimulation: 1
+--- !u!114 &5397629672004175084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140796248340613705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f903ad814ed13b47afad30ccb853660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  targetable: 1
+  disableSimulation: 1
 --- !u!1 &8526448993732692934
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordDamage: 1
-  knockbackForce: 5000
+  knockbackForce: 700
   swordCollider: {fileID: 3411513482011271659}
   faceRight: {x: -0.03, y: 0.01, z: 0}
   faceLeft: {x: 0.03, y: 0.01, z: 0}
