@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     public float Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public bool Targetable { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public bool Invincible { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public float health = 5f;
     public bool targetable = true;

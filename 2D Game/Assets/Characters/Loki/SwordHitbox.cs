@@ -8,7 +8,7 @@ public class SwordHitbox : MonoBehaviour
     //Vector2 leftAttackOffset;
 
     public float swordDamage = 1f;
-    public float knockbackForce = 700f;
+    public float knockbackForce = 15f;
     public Collider2D swordCollider;
 
     public Vector3 faceRight = new Vector3(-0.03f, 0.01f, 0);
@@ -45,7 +45,7 @@ public class SwordHitbox : MonoBehaviour
         {
             Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
 
-            Vector2 direction = (Vector2) (collider.gameObject.transform.position - transform.position).normalized;
+            Vector2 direction = (Vector2) (collider.gameObject.transform.position - parentPosition).normalized;
             Vector2 knockback = direction * knockbackForce;
 
             //collider.SendMessage("OnHit", swordDamage, knockback);

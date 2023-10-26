@@ -43,8 +43,10 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove == true && movementInput != Vector2.zero)
         {
-
+            // old movement
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + (movementInput * moveSpeed * Time.deltaTime), maxSpeed);
+
+            //rb.AddForce(movementInput * moveSpeed * Time.deltaTime);
 
             if (movementInput.x > 0)
             {
@@ -62,7 +64,6 @@ public class PlayerController : MonoBehaviour
             IsMoving = true;
         }
         else {
-            //rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, idleFriction);
 
             IsMoving = false;
         }

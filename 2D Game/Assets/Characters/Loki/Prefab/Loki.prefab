@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1301853712540637559}
   - component: {fileID: 5275166602970655004}
   - component: {fileID: 5397629672004175084}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Loki
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 500
   collisionOffset: 0.05
-  maxSpeed: 2.2
+  maxSpeed: 3.5
   idleFriction: 0.9
   movementFilter:
     useTriggers: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f903ad814ed13b47afad30ccb853660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 4430370919741592574, guid: 352d953aa904fd2479e966afd562dbb3, type: 3}
   health: 5
   targetable: 1
   disableSimulation: 1
@@ -248,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f903ad814ed13b47afad30ccb853660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
   health: 5
   targetable: 1
   disableSimulation: 1
