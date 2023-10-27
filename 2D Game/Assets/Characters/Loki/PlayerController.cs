@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     Collider2D swordCollider;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
+    [SerializeField] private AudioSource attackSoundEffect;
+
     bool canMove = true;
 
     // Start is called before the first frame update
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
     void OnFire() 
     {
         animator.SetTrigger("swordAttack");
+        attackSoundEffect.Play();
     }
 
     public void SwordAttack()

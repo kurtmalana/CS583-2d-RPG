@@ -8,7 +8,9 @@ public class Atros : MonoBehaviour
     public float knockbackForce = 2500f;
     public float moveSpeed = 900f;
     public float maxSpeed = 4;
+    public float maxDistance = 50f;
     private bool isMoving = false;
+    private bool isIdleSoundPlaying = false;
 
     public DetectionZone detectionZone;
     Rigidbody2D rb;
@@ -16,21 +18,40 @@ public class Atros : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
 
+    [SerializeField] private AudioSource idleSoundEffect;
+    [SerializeField] private AudioSource attackSoundEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         damageableCharacter = GetComponent<DamageableCharacter>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
-        Collider2D detectedObject0 = detectionZone.detectedObjs[0];
+        Collider2D detectedObject0 = detectionZone.detectedObjs.Count > 0 ? detectionZone.detectedObjs[0] : null;
 
-        if (damageableCharacter.Targetable && detectionZone.detectedObjs.Count > 0) {
+        if (damageableCharacter.Targetable && detectedObject0 != null)
+        {
 
             //Calculate the direction to target object
             Vector2 direction = (detectionZone.detectedObjs[0].transform.position - transform.position).normalized;
+
+            /*
+            // Calculate the distance between the character and the detected object
+            float distance = Vector2.Distance(transform.position, detectedObject0.transform.position);
+
+            // Adjust the volume based on distance (you can modify this formula)
+            float maxVolume = 1.0f; // Max volume
+            float minVolume = 0.05f; // Min volume (adjust as needed)
+            float volume = Mathf.Lerp(maxVolume, minVolume, distance / maxDistance);
+
+            // Set the volume of the audio source
+            idleSoundEffect.volume = volume;
+            attackSoundEffect.volume = volume;
+            */
 
             // Move towards detected object
             rb.velocity = Vector2.ClampMagnitude(rb.velocity + (direction * moveSpeed * Time.deltaTime), maxSpeed);
@@ -49,12 +70,31 @@ public class Atros : MonoBehaviour
             }
 
             IsMoving = true;
-            Debug.Log("it's going");
+            //animator.SetBool("isMoving", true);
+
+            if (isIdleSoundPlaying)
+            {
+                idleSoundEffect.Stop();
+                attackSoundEffect.Play();
+                isIdleSoundPlaying = false;
+            }
+
         }
         else
         {
-            IsMoving = true;
+            //idleSoundEffect.Play();
+            IsMoving = false;
+            //animator.SetBool("isMoving", false);
+
+            if (!isIdleSoundPlaying)
+            {
+                idleSoundEffect.Play();
+                attackSoundEffect.Stop();
+                isIdleSoundPlaying = true;
+            }
+
         }
+        
     }
 
     // Damage
